@@ -1,5 +1,5 @@
-import imageNew from '../assets/images/brand/Plug&Hogar_new.jpg';
-import imageOld from '../assets/images/brand/Plug&Hogar_old.jpg';
+import imageNew from '../../../src/assets/images/brand/Plug&Hogar_new.jpg';
+import imageOld from '../../../src/assets/images/brand/Plug&Hogar_old.jpg';
 
 export const About = () => {
   return (

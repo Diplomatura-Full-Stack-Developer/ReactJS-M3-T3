@@ -44,6 +44,7 @@ export const BranchesCard = ({ branch }) => {
       </p>
       {socialNetworks.map((network) => (
         <a
+          key={network.name}
           href={network.url}
           target='_blank'
           rel='noopener noreferrer'

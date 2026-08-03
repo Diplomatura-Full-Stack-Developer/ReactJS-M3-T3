@@ -1,11 +1,20 @@
 import { useParams } from 'react-router-dom';
-import { products } from '../data/products';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getProducts } from '../../features/products/services/products.service';
 
 export const Product = () => {
+
+  const [product, setProduct] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
-  const product = products.find((product) => product.id === id);
+
+
+  useEffect(() => {
+    getProducts().then((products) => {
+      setProduct(products.find((product) => product.id === id));
+    });
+  }, [id]);
 
   if (!product) {
     return <div>Product not found</div>;

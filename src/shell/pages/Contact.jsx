@@ -1,5 +1,5 @@
 import { BranchesCard } from './ui/BranchesCard';
-import { branches } from '../data/branches';  
+import { branches } from '../../data/branches';  
 
 
 export const Contact = () => {

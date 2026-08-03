@@ -102,7 +102,7 @@ export const analytics = getAnalytics(app);
 
 Después de ejecutar todos los pasos correspondientes, Firebase despliega la aplicación en una URL, que en el caso de mi proyecto es la siguiente:
 
-https://app-routes-724de.web.app/
+<!-- https://app-routes-724de.web.app/ -->
 
 
 
@@ -117,3 +117,15 @@ https://app-routes-724de.web.app/
 ### Alumno: Rubén Seco
 
 ### Comisión: 181752
+
+
+location db = nam5 (us-central1)
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,19 @@
-import { products } from '../data/products';
+// import { products } from '../../data/products';
 import { ProductCard } from './ui/ProductCard';
-import logo from '../assets/images/brand/Logo_Plug_&_Hogar.png';
+import logo from '../../assets/images/brand/Logo_Plug_&_Hogar.png';
+import { getProducts } from '../../features/products/services/products.service';
+import { useEffect, useState } from 'react';
 
 export const Home = () => {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts().then((products) => {
+      setProducts(products);
+    });
+  }, []);
+
   return (
     <div className='flex flex-col w-full items-center justify-center'>
       <div className='flex flex-col md:flex-row items-center justify-between w-full px-16'>
