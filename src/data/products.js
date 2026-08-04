@@ -2,7 +2,6 @@
 
 export const products = [
   {
-    id: "a1b2c3d4-e5f6-4789-a012-3456789abc01",
     type: "Cocina",
     brand: "Whirlpool",
     model: "WFX57S",
@@ -18,7 +17,6 @@ export const products = [
     ],
   },
   {
-    id: "b2c3d4e5-f6a7-4890-b123-456789abc012",
     type: "Heladera",
     brand: "Samsung",
     model: "RT38K5932S8",
@@ -34,7 +32,6 @@ export const products = [
     ],
   },
   {
-    id: "c3d4e5f6-a7b8-4901-c234-56789abc0123",
     type: "Lavarropas",
     brand: "Drean",
     model: "Next 8.12 Eco",
@@ -50,7 +47,6 @@ export const products = [
     ],
   },
   {
-    id: "d4e5f6a7-b8c9-4012-d345-6789abc01234",
     type: "Horno microondas",
     brand: "BGH",
     model: "B120D",
@@ -66,7 +62,6 @@ export const products = [
     ],
   },
   {
-    id: "e5f6a7b8-c9d0-4123-e456-789abc012345",
     type: "Televisor",
     brand: "LG",
     model: "55UQ8050PSB",
@@ -82,7 +77,6 @@ export const products = [
     ],
   },
   {
-    id: "f6a7b8c9-d0e1-4234-f567-89abc0123456",
     type: "Aire acondicionado",
     brand: "Surrey",
     model: "553BFQ1201F",

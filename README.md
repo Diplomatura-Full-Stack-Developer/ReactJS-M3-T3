@@ -10,7 +10,7 @@
 
 #### Tarea 2 - Objetivo:
 
-Aplicar las operaciones CRUD (Create, Read, Update, Delete) con Firestore,
+Aplicar las operaciones CRUD (**Create, Read, Update, Delete**) con Firestore,
 comprendiendo cuándo y cómo usar addDoc(), setDoc(), updateDoc() y deleteDoc(),
 así como el uso de lecturas en tiempo real.
 

@@ -1,7 +1,7 @@
 import imageNew from '../../../src/assets/images/brand/Plug&Hogar_new.jpg';
 import imageOld from '../../../src/assets/images/brand/Plug&Hogar_old.jpg';
 
-export const About = () => {
+export const AboutPage = () => {
   return (
     <section className='p-4'>
       <div className='grid gap-4 md:grid-cols-2 md:gap-0 md:min-h-110'>

@@ -17,9 +17,10 @@ export const addProduct = async (product) => {
 export const getProducts = async () => {
   try {
     const querySnapshot = await getDocs(collection(db, 'products'));
-    return querySnapshot.docs.map((doc) => doc.data());
+    return querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}));
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
+

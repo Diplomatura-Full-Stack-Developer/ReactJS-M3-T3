@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { Header } from '../../shared/components/Header';
-import { Footer } from '../../shared/components/Footer';
+import { Header } from '../../../shared/components/Header';
+import { Footer } from '../../../shared/components/Footer';
 
-export const MainLayout = () => {
+export const DashboardLayout = () => {
   const HeaderProps = {
-    title: 'Curso de ReactJS',
-    navbar: true,
+    title: 'Administrador de Productos',
+    navbar: false,
   };
   return (
     <div className='font-roboto h-screen flex flex-col'>
@@ -17,3 +17,4 @@ export const MainLayout = () => {
     </div>
   );
 };
+

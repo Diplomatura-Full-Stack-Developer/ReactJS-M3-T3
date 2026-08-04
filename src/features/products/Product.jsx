@@ -1,14 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../features/products/services/products.service';
+import { getProducts } from './services/products.service';
 
 export const Product = () => {
-
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
-
 
   useEffect(() => {
     getProducts().then((products) => {

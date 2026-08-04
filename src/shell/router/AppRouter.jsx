@@ -2,12 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { MainLayout } from '../../shell/layouts/MainLayout';
-import { Contact } from '../../shell/pages/Contact';
+import { ContactPage } from '../../shell/pages/ContactPage';
 import { Cart } from '../../shell/pages/ui/Cart';
 import { ProtectedRoutes } from '../../shell/pages/ProtectedRoutes';
-import { Home } from '../../shell/pages/Home';
-import { About } from '../../shell/pages/About';
-import { Product } from '../../shell/pages/Product';
+import { HomePage } from '../../shell/pages/HomePage';
+import { AboutPage } from '../../shell/pages/AboutPage';
+import { Product } from '../../features/products/Product';
 
 export const AppRouter = () => {
   return (
@@ -19,15 +19,15 @@ export const AppRouter = () => {
             element={<MainLayout />}>
             <Route
               index
-              element={<Home />}
+              element={<HomePage />}
             />
             <Route
               path='/contact'
-              element={<Contact />}
+              element={<ContactPage />}
             />
             <Route
               path='/about'
-              element={<About />}
+              element={<AboutPage />}
             />
             <Route
               path='/product/:id'
