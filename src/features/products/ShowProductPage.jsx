@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProducts } from './services/products.service';
 
-export const Product = () => {
+export const ShowProductPage = () => {
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();

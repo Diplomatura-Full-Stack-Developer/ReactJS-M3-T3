@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { DashboardLayout } from '../../dashboard/layouts/DashboardLayout';
 import { DashboardPage } from '../../dashboard/pages/DashboardPage';
+import { AddProductPage } from '../../products/AddProductPage';
+import { UpdateProductPage } from '../../products/UpdateProductPage';
 
 export const DashboardRouter = () => {
   return (
@@ -15,6 +17,14 @@ export const DashboardRouter = () => {
             <Route
               index
               element={<DashboardPage />}
+            />
+            <Route
+              path='/add-product'
+              element={<AddProductPage />}
+            />
+            <Route
+              path='/update-product/:id'
+              element={<UpdateProductPage />}
             />
           </Route>
           <Route

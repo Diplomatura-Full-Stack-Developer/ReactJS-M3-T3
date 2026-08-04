@@ -7,7 +7,7 @@ import { Cart } from '../../shell/pages/ui/Cart';
 import { ProtectedRoutes } from '../../shell/pages/ProtectedRoutes';
 import { HomePage } from '../../shell/pages/HomePage';
 import { AboutPage } from '../../shell/pages/AboutPage';
-import { Product } from '../../features/products/Product';
+import { ShowProductPage } from '../../features/products/ShowProductPage';
 
 export const AppRouter = () => {
   return (
@@ -31,7 +31,7 @@ export const AppRouter = () => {
             />
             <Route
               path='/product/:id'
-              element={<Product />}
+              element={<ShowProductPage />}
             />
             <Route
               path='/cart'

@@ -2,6 +2,7 @@
 
 export const products = [
   {
+    deleted: false,
     type: "Cocina",
     brand: "Whirlpool",
     model: "WFX57S",
@@ -17,6 +18,7 @@ export const products = [
     ],
   },
   {
+    deleted: false,
     type: "Heladera",
     brand: "Samsung",
     model: "RT38K5932S8",
@@ -32,6 +34,7 @@ export const products = [
     ],
   },
   {
+    deleted: false,
     type: "Lavarropas",
     brand: "Drean",
     model: "Next 8.12 Eco",
@@ -47,6 +50,7 @@ export const products = [
     ],
   },
   {
+    deleted: false,
     type: "Horno microondas",
     brand: "BGH",
     model: "B120D",
@@ -62,6 +66,7 @@ export const products = [
     ],
   },
   {
+    deleted: false,
     type: "Televisor",
     brand: "LG",
     model: "55UQ8050PSB",
@@ -77,6 +82,7 @@ export const products = [
     ],
   },
   {
+    deleted: false,
     type: "Aire acondicionado",
     brand: "Surrey",
     model: "553BFQ1201F",
