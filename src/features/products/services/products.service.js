@@ -1,10 +1,20 @@
-import { collection, addDoc, getDocs, updateDoc, doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, updateDoc, doc, setDoc, deleteDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 
 export const getProducts = async () => {
   try {
     const querySnapshot = await getDocs(collection(db, 'products'));
     return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter((product) => !product.deleted);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const getProductById = async (id) => {
+  try {
+    const docSnapshot = await getDoc(doc(db, 'products', id));
+    return docSnapshot.data();
   } catch (error) {
     console.error(error);
     throw error;

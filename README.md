@@ -44,27 +44,10 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 ```
 
-5. Ejecutar el comando que prepara la aplicación para ser desplegada en Firebase:
+
+5. Ejecutar el comando: firebase deploy --only firestore:rules para poder acceder a la base de datos de Firebase.
 ```bash
-npm run build
-```
-
-6. Crear un proyecto en Firebase.
-
-
-7. Iniciar el proyecto de Firebase:
-```bash
-firebase login
-```
-
-8. Ejecutar el comando: firebase init hosting
-```bash
-firebase init hosting
-```
-
-9. Ejecutar el comando: firebase deploy
-```bash
-firebase deploy --only hosting
+firebase deploy --only firestore:rules
 ```
 
 ### Configuración de Firebase:
@@ -98,9 +81,19 @@ export const analytics = getAnalytics(app);
 
 ```
 
-### Proyecto desplegado en Firebase:
+### Consideraciones generales de la tarea:
 
-Después de ejecutar todos los pasos correspondientes, Firebase despliega la aplicación en una URL, que en el caso de mi proyecto es la siguiente:
+Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I). 
+El objetivo es avanzar hacia lo que podría ser la tarea final integradora del curso. 
+
+### Consideraciones del **update** de un producto:
+
+Se habilitan para modificar solamente los campos que son editables: precio y stock.
+Modificar otros campos, implicaría crear un producto distinto sobre uno existente.
+
+<!-- ### Proyecto desplegado en Firebase:
+
+Después de ejecutar todos los pasos correspondientes, Firebase despliega la aplicación en una URL, que en el caso de mi proyecto es la siguiente: -->
 
 <!-- https://app-routes-724de.web.app/ -->
 

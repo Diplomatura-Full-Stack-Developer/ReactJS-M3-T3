@@ -13,6 +13,10 @@ const navbarLinks = [
     to: '/about',
     label: 'Nosotros',
   },
+  {
+    to: '/dashboard',
+    label: 'Admin',
+  },
 ]
 
 

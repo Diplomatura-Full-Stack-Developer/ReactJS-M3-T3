@@ -11,7 +11,7 @@ export const DashboardPage = () => {
     { title: 'Marca', key: 'brand' },
     { title: 'Modelo', key: 'model' },
     { title: 'Precio', key: 'price' },
-    { title: 'Cantidad', key: 'stock' },
+    { title: 'Stock', key: 'stock' },
   ];
 
   useEffect(() => {
@@ -27,12 +27,12 @@ export const DashboardPage = () => {
   return (
     <div className='p-4'>
       <button
-        onClick={() => navigate('/add-product')}
+        onClick={() => navigate('products/add-product')}
         className='bg-primary-600 text-white rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
         Agregar Producto
       </button>
       <table className='w-full border-collapse border border-gray-300 shadow-md'>
-        <thead className='bg-primary-200 text-gray-700 text-shadow-md'>
+        <thead className='bg-primary-100 text-gray-700 text-shadow-md'>
           <tr>
             {tableTitles.map((title) => (
               <th
@@ -57,7 +57,7 @@ export const DashboardPage = () => {
               ))}
               <td>
                 <button
-                  onClick={() => navigate(`/update-product/${product.id}`)}
+                  onClick={() => navigate(`products/update-product/${product.id}`)}
                   className='bg-primary-600 text-white rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer'>
                   <FiEdit2 />
                 </button>

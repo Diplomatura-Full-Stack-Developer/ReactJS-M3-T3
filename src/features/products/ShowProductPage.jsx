@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProducts } from './services/products.service';
+import { ButtonsShowProduct } from './ui/ButtonsShowProduct';
 
-export const ShowProductPage = () => {
+export const ShowProductPage = ({ showButtons }) => {
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -57,18 +58,7 @@ export const ShowProductPage = () => {
           </ul>
         </div>
       </div>
-      <div className='flex flex-row items-center justify-center w-full gap-4'>
-        <button
-          onClick={() => navigate('/')}
-          className='bg-primary-700 text-white/80 text-shadow-lg text-xl font-bold text-center p-2 rounded-lg hover:bg-primary-800 transition-all duration-300 mt-8'>
-          Regresar
-        </button>
-        <button
-          onClick={() => handleAddToCart()}
-          className='bg-accent-700 text-white/80 text-shadow-lg text-xl font-bold text-center p-2 rounded-lg hover:bg-accent-800 transition-all duration-300 mt-8'>
-          Comprar
-        </button>
-      </div>
+      {showButtons && <ButtonsShowProduct handleAddToCart={handleAddToCart} />}
     </div>
   );
 };
