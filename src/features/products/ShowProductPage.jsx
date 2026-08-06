@@ -29,8 +29,7 @@ export const ShowProductPage = () => {
       <h2 className='text-accent-700 text-shadow-lg text-2xl font-bold text-center'>{product.brand}</h2>
       <div className='flex flex-col md:flex-row items-center justify-center md:justify-evenly'>
         <img
-          srcSet={product.imageUrl}
-          sizes='(max-width: 580px) 75vw, 35vw'
+          src={product.imageUrl}
           alt={product.type}
           className='object-cover rounded-md md:rounded-lg shadow-lg m-4 w-1/2 md:w-1/6'
         />

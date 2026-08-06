@@ -23,8 +23,8 @@ export const ProductCard = ({ product }) => {
       <h2 className='text-xl font-bold text-secondary-600 text-shadow-lg'>{product.type}</h2>
       <h3 className='text-md font-bold text-accent-700 text-shadow-lg'>{product.brand}</h3>
       <img
-        srcSet={product.imageUrl}
-        sizes='(max-width: 768px) 100vw, 50vw'
+        src={product.imageUrl}
+        // sizes='(max-width: 768px) 100vw, 50vw'
         alt={product.type}
         className=' object-scale-down h-48 w-full rounded-md md:rounded-lg'
       />
