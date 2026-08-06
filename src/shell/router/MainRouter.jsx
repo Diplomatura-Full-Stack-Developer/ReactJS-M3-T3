@@ -27,7 +27,7 @@ export const MainRouter = () => {
           />
           <Route
             path='products/:id'
-            element={<ShowProductPage showButtons={true} />}
+            element={<ShowProductPage />}
           />
           <Route
             path='/cart'

@@ -12,6 +12,7 @@ export const DashboardPage = () => {
     { title: 'Modelo', key: 'model' },
     { title: 'Precio', key: 'price' },
     { title: 'Stock', key: 'stock' },
+    { title: 'Cuotas', key: 'offer' },
   ];
 
   useEffect(() => {
@@ -52,7 +53,8 @@ export const DashboardPage = () => {
                 <td
                   className='pl-4'
                   key={title.key}>
-                  {product[title.key]} {title.key === 'price' ? '$' : ''}
+                  {title.key === 'offer' ? product[title.key] ? 'Si' : 'No' : product[title.key]}
+                  {title.key === 'price' ? ' $' : ''}
                 </td>
               ))}
               <td>

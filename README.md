@@ -88,7 +88,7 @@ El objetivo es avanzar hacia lo que podría ser la tarea final integradora del c
 
 ### Consideraciones del **update** de un producto:
 
-Se habilitan para modificar solamente los campos que son editables: precio y stock.
+Se habilitan para modificar solamente los campos que son editables: precio, stock y oferta en cuotas.
 Modificar otros campos, implicaría crear un producto distinto sobre uno existente.
 
 <!-- ### Proyecto desplegado en Firebase:
