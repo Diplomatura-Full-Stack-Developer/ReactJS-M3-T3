@@ -1,5 +1,23 @@
 import { collection, addDoc, getDocs, updateDoc, doc, setDoc, deleteDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
+import { products } from '../../../data/products';
+
+
+export const seedProducts = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'products'));
+    for (const productDoc of querySnapshot.docs) {
+      await deleteDoc(doc(db, 'products', productDoc.id));
+    }
+    for (const product of products) {
+      await addDoc(collection(db, 'products'), product);
+    }
+    return products;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
 export const getProducts = async () => {
   try {
@@ -10,6 +28,17 @@ export const getProducts = async () => {
     throw error;
   }
 };
+
+export const getDeletedProducts = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'products'));
+    return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter((product) => product.deleted);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 
 export const getProductById = async (id) => {
   try {

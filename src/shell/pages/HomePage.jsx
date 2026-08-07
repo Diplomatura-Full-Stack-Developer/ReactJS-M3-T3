@@ -1,17 +1,14 @@
 // import { products } from '../../data/products';
 import logo from '../../assets/images/brand/Logo_Plug_&_Hogar.png';
-import { getProducts } from '../../features/products/services/products.service';
 import { useEffect, useState } from 'react';
 import { ProductCard } from '../../features/products/ui/ProductCard';
+import { getProducts } from '../../features/products/services/products.service';
 
 export const HomePage = () => {
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts().then((products) => {
-      setProducts(products);
-    });
+    getProducts().then(setProducts);
   }, []);
 
   return (

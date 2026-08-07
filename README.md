@@ -91,13 +91,10 @@ El objetivo es avanzar hacia lo que podría ser la tarea final integradora del c
 Se habilitan para modificar solamente los campos que son editables: precio, stock y oferta en cuotas.
 Modificar otros campos, implicaría crear un producto distinto sobre uno existente.
 
-<!-- ### Proyecto desplegado en Firebase:
+### Consideraciones del **delete** de un producto:
 
-Después de ejecutar todos los pasos correspondientes, Firebase despliega la aplicación en una URL, que en el caso de mi proyecto es la siguiente: -->
-
-<!-- https://app-routes-724de.web.app/ -->
-
-
+El producto se marca como borrado (soft delete) para cumplir con la consigna de uso de **setDoc()** con **{ merge: true }**.
+El producto se puede eliminar permanentemente desde la sección de productos borrados para cumplir con la consigna de uso de **deleteDoc()**.
 
 ### Recursos utilizados en la tarea:
 
@@ -112,7 +109,6 @@ Después de ejecutar todos los pasos correspondientes, Firebase despliega la apl
 ### Comisión: 181752
 
 
-location db = nam5 (us-central1)
 
 
 
