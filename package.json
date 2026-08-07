@@ -1,16 +1,6 @@
 {
   "name": "reactjs-m3-t2",
   "version": "0.0.0",
-  "private": true,
-  "description": "Aplicar las operaciones CRUD (**Create, Read, Update, Delete**) con Firestore,\r comprendiendo cuándo y cómo usar addDoc(), setDoc(), updateDoc() y deleteDoc(),\r así como el uso de lecturas en tiempo real.",
-  "homepage": "https://github.com/Diplomatura-Full-Stack-Developer/ReactJS-M3-T3#readme",
-  "bugs": {
-    "url": "https://github.com/Diplomatura-Full-Stack-Developer/ReactJS-M3-T3/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Diplomatura-Full-Stack-Developer/ReactJS-M3-T3.git"
-  },
   "license": "ISC",
   "author": "",
   "type": "module",
