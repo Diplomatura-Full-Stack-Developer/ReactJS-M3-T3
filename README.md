@@ -86,6 +86,15 @@ export const analytics = getAnalytics(app);
 Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I). 
 El objetivo es avanzar hacia lo que podría ser la tarea final integradora del curso. 
 
+### Consideraciones sobre la base de datos:
+
+Se ejecuta desde la consola de DevTools de Chrome el comando:
+
+```js
+await seedProducts();
+```
+para crear los productos de prueba en la base de datos de Firestore.
+
 ### Consideraciones del **update** de un producto:
 
 Se habilitan para modificar solamente los campos que son editables: precio, stock y oferta en cuotas.
