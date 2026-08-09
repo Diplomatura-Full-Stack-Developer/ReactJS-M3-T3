@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, updateDoc, doc, setDoc, deleteDoc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, updateDoc, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import { products } from '../../../data/products';
 
@@ -29,21 +29,32 @@ export const getProducts = async () => {
   }
 };
 
+
+export const subscribeToProducts = (onChange, { deleted = false } = {}) => {
+  return onSnapshot(collection(db, 'products'), (snapshot) => {
+    const products = snapshot.docs
+      .map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((product) => Boolean(product.deleted) === deleted);
+
+    onChange(products);
+  });
+};
+
+export const subscribeToProductById = (id, onChange) => {
+  return onSnapshot(doc(db, 'products', id), (docSnapshot) => {
+    if (!docSnapshot.exists()) {
+      onChange(null);
+      return;
+    }
+
+    onChange({ ...docSnapshot.data(), id: docSnapshot.id });
+  });
+};
+
 export const getDeletedProducts = async () => {
   try {
     const querySnapshot = await getDocs(collection(db, 'products'));
     return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter((product) => product.deleted);
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
-
-
-export const getProductById = async (id) => {
-  try {
-    const docSnapshot = await getDoc(doc(db, 'products', id));
-    return docSnapshot.data();
   } catch (error) {
     console.error(error);
     throw error;

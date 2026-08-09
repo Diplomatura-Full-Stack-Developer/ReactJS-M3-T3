@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getProductById, updateProduct } from './services/products.service';
+import { subscribeToProductById, updateProduct } from './services/products.service';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -7,27 +7,36 @@ export const UpdateProductPage = () => {
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+
   useEffect(() => {
-    const fetchProduct = async () => {
-      const product = await getProductById(id);
-      setProduct(product);
-    };
-    fetchProduct();
-  }, [id, product]);
+    const unsubscribe = subscribeToProductById(id, setProduct);
+    return () => unsubscribe();
+  }, [id]);
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    if (!product) {
+      return;
+    }
+    reset({
+      price: product.price,
+      stock: product.stock,
+      offer: String(product.offer),
+    });
+  }, [product, reset]);
+
   const onSubmit = async (data) => {
-    event.preventDefault();
     await updateProduct(id, {
       ...product,
       price: Number(data.price),
       stock: Number(data.stock),
-      offer: Boolean(data.offer),
+      offer: data.offer === 'true' ? true : false,
     });
     navigate('dashboard');
   };
@@ -116,8 +125,8 @@ export const UpdateProductPage = () => {
             className='border-2 border-primary-700 rounded-md p-2'
             defaultValue={product.offer}
             {...register('offer')}>
-            <option value={true}>Si</option>
-            <option value={false}>No</option>
+            <option value='true'>Si</option>
+            <option value='false'>No</option>
           </select>
           <button
             className='bg-primary-600 text-white/80 text-shadow-lg text-xl font-bold text-center p-2 rounded-lg hover:bg-primary-700 transition-all duration-300 mt-2 cursor-pointer'

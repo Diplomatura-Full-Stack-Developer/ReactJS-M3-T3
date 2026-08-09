@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MainRouter } from '../shell/router/MainRouter';
 import { DashboardRouter } from '../features/dashboard/router/DashboardRouter';
 import { Navigate } from 'react-router-dom';
+import { AuthRouter } from '../auth/router/AuthRouter';
 
 export const AppRouter = () => {
   return (
@@ -15,6 +16,10 @@ export const AppRouter = () => {
           <Route
             path='/dashboard/*'
             element={<DashboardRouter />}
+          />
+          <Route
+            path='/auth/*'
+            element={<AuthRouter />}
           />
           <Route
             path='*'

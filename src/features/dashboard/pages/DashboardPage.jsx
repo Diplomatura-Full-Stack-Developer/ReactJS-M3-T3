@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
-  getProducts,
+  subscribeToProducts,
   deleteProduct,
-  getDeletedProducts,
   deleteProductPermanently,
 } from '../../products/services/products.service';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
@@ -11,8 +10,6 @@ import Swal from 'sweetalert2';
 
 export const DashboardPage = () => {
   const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
-  const [deletedProducts, setDeletedProducts] = useState([]);
   const [showDeletedProducts, setShowDeletedProducts] = useState(false);
   const [productsToShow, setProductsToShow] = useState([]);
 
@@ -25,15 +22,12 @@ export const DashboardPage = () => {
     { title: 'Cuotas', key: 'offer' },
   ];
 
-  const fetchProducts = () => {
-    getProducts().then(setProducts);
-    getProducts().then(setProductsToShow);
-    getDeletedProducts().then(setDeletedProducts);
-  };
-
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    const unsubscribe = subscribeToProducts(setProductsToShow, {
+      deleted: showDeletedProducts,
+    });
+    return () => unsubscribe();
+  }, [showDeletedProducts]);
 
   const handleDelete = (id) => {
     if (showDeletedProducts) {
@@ -47,20 +41,15 @@ export const DashboardPage = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           deleteProductPermanently(id);
-          setShowDeletedProducts(!showDeletedProducts);
-          fetchProducts();
         }
       });
     } else {
       deleteProduct(id);
-      fetchProducts();
     }
   };
 
   const handleShowDeletedProducts = () => {
-    showDeletedProducts ? setProductsToShow(products) : setProductsToShow(deletedProducts);
-    setShowDeletedProducts(!showDeletedProducts);
-    return setProductsToShow;
+    setShowDeletedProducts((prev) => !prev);
   };
 
   return (
@@ -68,12 +57,12 @@ export const DashboardPage = () => {
       <div className='flex justify-between'>
         <button
           onClick={() => navigate('products/add-product')}
-          className='bg-primary-600 text-white rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
+          className='bg-primary-500 text-white font-bold text-shadow-lg text-md rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
           Agregar Producto
         </button>
         <button
           onClick={handleShowDeletedProducts}
-          className='bg-accent-600 text-white rounded-md p-2 m-2 hover:bg-accent-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
+          className='bg-accent-600 text-white font-bold rounded-md p-2 m-2 hover:bg-accent-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
           {showDeletedProducts ? 'Ver Productos Activos' : 'Ver Productos Borrados'}
         </button>
       </div>
