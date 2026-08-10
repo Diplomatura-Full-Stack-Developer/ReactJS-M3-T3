@@ -1,4 +1,12 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu';
+import { FiMenu } from 'react-icons/fi';
 
 const navbarLinks = [
   {
@@ -17,25 +25,60 @@ const navbarLinks = [
     to: '/dashboard',
     label: 'Admin',
   },
-  {
-    to: '/auth',
-    label: 'Iniciar sesión',
-  },
-]
-
+];
 
 export const Navbar = () => {
   return (
-    <nav className='text-accent-700 p-4 text-base font-bold text-shadow-lg'>
-      <ul className='flex justify-between items-center gap-4 font-bold'>
-        {navbarLinks.map((link) => (
-          <li key={link.to} className='hover:text-accent-500 transition-colors duration-300'>
-            <Link to={link.to}>{link.label==="Iniciar sesión" ? <button className='bg-primary-500 text-white font-bold text-shadow-lg text-md rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer flex items-center justify-center'>{link.label}</button> : link.label}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className='flex justify-between items-center'>
+      <nav className='text-accent-700 p-4 text-base font-bold text-shadow-lg hidden md:block'>
+        <ul className='flex justify-between items-center gap-4 font-bold'>
+          {navbarLinks.map((link) => (
+            <li
+              key={link.to}
+              className='hover:text-accent-500 transition-colors duration-300'>
+              <Link to={link.to}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <Link
+        to='/auth'
+        className='bg-primary-500 text-white text-center font-bold text-shadow-lg text-xs rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer'>
+        Iniciar sesión
+      </Link>
+      <div className='flex justify-end items-center md:hidden'>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            render={
+              <DropdownMenuTrigger
+                render={
+                  <button
+                    type='button'
+                    className='p-2'
+                    aria-label='Abrir menú'>
+                    <FiMenu className='text-4xl text-accent-700 font-bold' />
+                  </button>
+                }
+              />
+            }
+          />
+          <DropdownMenuContent
+            className='w-40'
+            align='start'>
+            <DropdownMenuGroup>
+              {navbarLinks.map((link) => (
+                <DropdownMenuItem key={link.to}>
+                  <Link
+                    to={link.to}
+                    className='hover:text-accent-500 transition-colors duration-300'>
+                    {link.label}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </div>
   );
-}
-
-
+};

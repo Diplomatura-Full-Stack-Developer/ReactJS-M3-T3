@@ -12,13 +12,13 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className='flex flex-col w-full items-center justify-center'>
-      <div className='flex flex-col md:flex-row items-center justify-between w-full px-16'>
+    <div className='flex flex-col w-full items-center justify-center w-full px-4 md:px-16'>
+      <div className='flex flex-col md:flex-row items-center justify-between w-full px-4 md:px-16'>
         <img
           srcSet={logo}
           sizes='(max-width: 768px) 100vw, 50vw'
           alt='logo'
-          className='h-24 object-contain'
+          className='h-24 object-contain max-w-full'
         />
         <h1 className='text-2xl md:text-4xl font-bold text-secondary-600 text-shadow-lg'>Artículos del Hogar</h1>
       </div>

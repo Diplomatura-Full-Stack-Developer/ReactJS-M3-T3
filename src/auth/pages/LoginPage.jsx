@@ -55,14 +55,14 @@ export const LoginPage = () => {
             </span>
           )}
           <button
-            className='bg-primary-600 text-white/80 text-shadow-lg text-xl font-bold text-center p-2 rounded-lg hover:bg-primary-700 transition-all duration-300 mt-2 cursor-pointer'
+            className='bg-primary-600 text-white/80 text-shadow-lg text-sm md:text-md font-bold text-center p-2 rounded-lg hover:bg-primary-700 transition-all duration-300 mt-2 cursor-pointer'
             type='submit'>
             Iniciar sesión
           </button>{' '}
           <Link
             to='/auth/register'
-            className='text-accent-600 text-shadow-lg text-md font-bold text-center'>
-            ¿No tienes una cuenta? <span className=' bg-primary-600 text-white rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>Regístrate</span>
+            className='text-accent-600 text-shadow-lg text-sm md:text-md font-bold text-center'>
+            ¿No tienes una cuenta? <span className=' bg-primary-600 text-white/80 rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>Regístrate</span>
           </Link>
         </form>
       </div>

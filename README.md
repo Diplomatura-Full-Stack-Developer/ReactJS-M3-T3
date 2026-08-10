@@ -112,47 +112,11 @@ El producto se puede eliminar permanentemente desde la sección de productos bor
 - React Router (https://reactrouter.com/home)
 - React Icons (https://react-icons.github.io/react-icons/)
 - SweetAlert2 (https://sweetalert2.github.io/)
+- Shadcn UI (https://ui.shadcn.com/)
 
 ### Alumno: Rubén Seco
 
 ### Comisión: 181752
-
-
-
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-// 1. Obtener la instancia de Auth
-const auth = getAuth();
-
-Crear un formulario de registro de usuario con email y contraseña.
-
-// 2. Esta función se llamaría al enviar el formulario
-function registrarUsuario(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // El usuario se ha registrado y ha iniciado sesión automáticamente
-      const user = userCredential.user;
-      console.log("Usuario creado con éxito:", user.uid);
-      // Aquí puedes redireccionar al usuario o mostrar un mensaje de éxito
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      
-      // Manejo de errores comunes
-      if (errorCode === 'auth/email-already-in-use') {
-        alert("El correo ya está registrado.");
-      } else if (errorCode === 'auth/weak-password') {
-        alert("La contraseña es muy débil.");
-      } else {
-        console.error("Error al registrar:", errorMessage);
-      }
-    });
-}
-
-
-
-
 
 
 

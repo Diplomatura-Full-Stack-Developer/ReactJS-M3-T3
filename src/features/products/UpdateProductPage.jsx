@@ -46,10 +46,10 @@ export const UpdateProductPage = () => {
   }
 
   return (
-    <div>
-      <div className='bg-primary-200 flex flex-col p-4 m-4 md:m-8 rounded-lg shadow-lg'>
-        <h1 className='text-secondary-600 text-shadow-lg text-4xl font-bold text-center'>{product.type}</h1>
-        <h2 className='text-accent-700 text-shadow-lg text-2xl font-bold text-center'>{product.brand}</h2>
+    <div className='flex flex-col md:flex-row items-center justify-center w-full p-4 md:p-8'>
+      <div className='bg-primary-200 flex flex-col p-4 m-4 md:m-8 rounded-lg shadow-lg text-xs md:text-sm'>
+        <h1 className='text-secondary-600 text-shadow-lg text-xl md:text-2xl font-bold text-center'>{product.type}</h1>
+        <h2 className='text-accent-700 text-shadow-lg text-xl md:text-2xl font-bold text-center'>{product.brand}</h2>
         <div className='flex flex-col md:flex-row items-center justify-center md:justify-evenly'>
           <img
             srcSet={product.imageUrl}
@@ -72,7 +72,7 @@ export const UpdateProductPage = () => {
             </p>
           </div>
           <div className='flex flex-col items-start justify-center px-4'>
-            <h3 className='text-accent-700 text-shadow-lg text-xl font-bold text-center my-4'>Características</h3>
+            <h3 className='text-accent-700 text-shadow-lg text-sm md:text-md font-bold text-center my-4'>Características</h3>
             <ul>
               {product.features.map((feature) => (
                 <li key={feature}>{feature}</li>
@@ -81,55 +81,55 @@ export const UpdateProductPage = () => {
           </div>
         </div>
       </div>
-      <div className='bg-primary-200 flex flex-col items-center justify-center mx-4 p-4 md:mx-8 rounded-lg shadow-lg'>
+      <div className='bg-primary-200 flex flex-col items-center justify-center mx-4 p-4 md:mx-8 rounded-lg shadow-lg text-xs md:text-sm'>
         <form
           className='flex flex-col items-center justify-center gap-2'
           onSubmit={handleSubmit(onSubmit)}>
           <label
-            className='text-secondary-600 text-shadow-lg text-lg font-bold text-center'
+            className='text-secondary-600 text-shadow-lg font-bold text-center'
             htmlFor='name'>
             Precio
           </label>
           <input
-            className='border-2 border-primary-700 rounded-md p-2'
+            className='border-2 border-primary-700 rounded-md p-2 bg-white/80'
             type='number'
             defaultValue={product.price}
             {...register('price', { required: true, min: 1 })}
           />
           {errors.price && (
-            <span className='text-accent-700 text-sm'>El precio es requerido y debe ser un número mayor a 0</span>
+            <span className='text-accent-700'>El precio es requerido y debe ser un número mayor a 0</span>
           )}
           <label
-            className='text-secondary-600 text-shadow-lg text-lg font-bold text-center'
+            className='text-secondary-600 text-shadow-lg font-bold text-center'
             htmlFor='brand'>
             Stock
           </label>
           <input
-            className='border-2 border-primary-700 rounded-md p-2'
+            className='border-2 border-primary-700 rounded-md p-2 bg-white/80'
             type='number'
             defaultValue={product.stock}
             {...register('stock', { required: true, min: 0 })}
           />
           {errors.stock && (
-            <span className='text-accent-700 text-sm'>
+            <span className='text-accent-700'>
               El stock es requerido y debe ser un número mayor o igual a 0
             </span>
           )}
 
           <label
-            className='text-secondary-600 text-shadow-lg text-lg font-bold text-center'
+            className='text-secondary-600 text-shadow-lg font-bold text-center'
             htmlFor='offer'>
             Oferta en cuotas
           </label>
           <select
-            className='border-2 border-primary-700 rounded-md p-2'
+            className='border-2 border-primary-700 rounded-md p-2 bg-white/80'
             defaultValue={product.offer}
             {...register('offer')}>
             <option value='true'>Si</option>
             <option value='false'>No</option>
           </select>
           <button
-            className='bg-primary-600 text-white/80 text-shadow-lg text-xl font-bold text-center p-2 rounded-lg hover:bg-primary-700 transition-all duration-300 mt-2 cursor-pointer'
+            className='bg-primary-600 text-white/80 text-shadow-lg text-sm md:text-md font-bold text-center p-2 rounded-lg hover:bg-primary-700 transition-all duration-300 mt-2 cursor-pointer'
             type='submit'>
             Modificar datos
           </button>

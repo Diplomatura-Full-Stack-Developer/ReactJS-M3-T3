@@ -25,7 +25,7 @@ export const ShowProductPage = () => {
 
   return (
     <div className='bg-primary-200 flex flex-col p-4 m-4 md:m-8 rounded-lg shadow-lg'>
-      <h1 className='text-secondary-600 text-shadow-lg text-4xl font-bold text-center'>{product.type}</h1>
+      <h1 className='text-secondary-600 text-shadow-lg text-xl md:text-2xl font-bold text-center'>{product.type}</h1>
       <h2 className='text-accent-700 text-shadow-lg text-2xl font-bold text-center'>{product.brand}</h2>
       <div className='flex flex-col md:flex-row items-center justify-center md:justify-evenly'>
         <img
