@@ -6,7 +6,7 @@ export const MainLayout = () => {
   const HeaderProps = {
     title: 'Curso de ReactJS',
     navbar: true,
-    initialButton: false,
+    returnButton: false,
   };
   return (
     <div className='font-roboto h-screen flex flex-col'>

@@ -7,6 +7,7 @@ export const DashboardLayout = () => {
     title: 'Administrador de Productos',
     navbar: false,
     initialButton: true,
+    returnButton: true,
   };
   return (
     <div className='font-roboto h-screen flex flex-col'>
