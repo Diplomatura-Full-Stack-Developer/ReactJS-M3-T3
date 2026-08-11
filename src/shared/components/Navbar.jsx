@@ -43,7 +43,7 @@ export const Navbar = () => {
       </nav>
       <Link
         to='/auth'
-        className='bg-primary-500 text-white text-center font-bold text-shadow-lg text-xs rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer'>
+        className='bg-primary-500 w-16 md:w-24 text-white text-center font-bold text-shadow-lg text-xs rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer'>
         Iniciar sesión
       </Link>
       <div className='flex justify-end items-center md:hidden'>

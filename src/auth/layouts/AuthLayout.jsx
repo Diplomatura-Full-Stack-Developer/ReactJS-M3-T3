@@ -6,7 +6,7 @@ export const AuthLayout = () => {
   const HeaderProps = {
     title: 'Autenticación de usuario',
     navbar: false,
-    returnButton: false,
+    returnButton: true,
   };
   return (
     <div className='font-roboto h-screen flex flex-col'>

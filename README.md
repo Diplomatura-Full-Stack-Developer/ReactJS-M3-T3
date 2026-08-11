@@ -47,11 +47,28 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 ```
 
-5. Ejecutar el comando: firebase deploy --only firestore:rules para poder acceder a la base de datos de Firebase.
+5. Ejecutar el comando: firebase deploy --only firestore:rules para poder acceder a la base de datos de Firebase (si es necesario).
 
 ```bash
 firebase deploy --only firestore:rules
 ```
+
+6. En la terminal del editor o powershell, ejecutar el comando: npm run dev para iniciar el servidor de desarrollo.
+
+```bash
+npm run dev
+```
+
+7. En el navegador, acceder a la URL: http://localhost:5173 para ver la aplicación.
+
+8. Ejecutar desde la consola de DevTools de Chrome el comando:
+
+```js
+await seedProducts();
+```
+para crear los productos de prueba en la base de datos de Firestore.
+Si la colección no existe, se crea automáticamente y se agregan los productos de prueba.
+
 
 **Nota**: No es necesario hacer el _deploy_ para poder acceder a la base de datos de Firebase.
 
@@ -87,16 +104,6 @@ export const auth = getAuth();
 
 Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I).
 
-### Consideraciones sobre la base de datos:
-
-Ejecutar desde la consola de DevTools de Chrome el comando:
-
-```js
-await seedProducts();
-```
-
-para crear los productos de prueba en la base de datos de Firestore.
-Si la colección no existe, se crea automáticamente y se agregan los productos de prueba.
 
 ### Consideraciones del _**update**_ de un producto:
 
