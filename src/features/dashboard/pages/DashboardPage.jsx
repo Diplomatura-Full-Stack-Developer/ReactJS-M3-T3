@@ -105,7 +105,6 @@ export const DashboardPage = () => {
       </div>
 
       {/* Desktop: table */}
-      <table className='hidden w-full ... md:table'>...</table>
 
       <table className='w-full border-collapse border border-gray-300 shadow-md hidden md:table'>
         <thead className='bg-primary-100 text-gray-700 text-shadow-md'>

@@ -14,26 +14,29 @@ Aplicar las operaciones CRUD (**Create, Read, Update, Delete**) con Firestore,
 comprendiendo cuándo y cómo usar addDoc(), setDoc(), updateDoc() y deleteDoc(),
 así como el uso de lecturas en tiempo real.
 
-
 ### Como ejecutar la tarea:
 
 1. Clonar el repositorio:
+
 ```bash
 git clone https://github.com/Diplomatura-Full-Stack-Developer/ReactJS-M3-T2.git
 
 ```
 
 2. Instalar las dependencias:
+
 ```bash
 npm install
 ```
 
-3. Crear un archivo `.env`  copia de `.env.template` en la raíz del proyecto.
+3. Crear un archivo `.env` copia de `.env.template` en la raíz del proyecto.
+
 ```bash
 cp .env.template .env
 ```
 
 4. Agregar las variables de entorno en el archivo `.env`:
+
 ```bash
 VITE_FIREBASE_API_KEY=
 VITE_FIREBASE_AUTH_DOMAIN=
@@ -44,27 +47,26 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 ```
 
-
 5. Ejecutar el comando: firebase deploy --only firestore:rules para poder acceder a la base de datos de Firebase.
+
 ```bash
 firebase deploy --only firestore:rules
 ```
+
+**Nota**: No es necesario hacer el _deploy_ para poder acceder a la base de datos de Firebase.
 
 ### Configuración de Firebase:
 
 Dentro de la aplicación se crea la carpeta `firebase` en la carpeta `src` del proyecto y se agregan el archivo de configuración de Firebase.
 
 `config.js`
+
 ```js
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -72,28 +74,30 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
-
+export const db = getFirestore(app);
+export const auth = getAuth();
 ```
 
 ### Consideraciones generales de la tarea:
 
-Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I). 
-El objetivo es avanzar hacia lo que podría ser la tarea final integradora del curso. 
+Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I).
+El objetivo es avanzar hacia lo que podría ser la tarea final integradora del curso.
 
 ### Consideraciones sobre la base de datos:
 
-Se ejecuta desde la consola de DevTools de Chrome el comando:
+Ejecutar desde la consola de DevTools de Chrome el comando:
 
 ```js
 await seedProducts();
 ```
+
 para crear los productos de prueba en la base de datos de Firestore.
+Si la colección no existe, se crea automáticamente y se agregan los productos de prueba.
 
 ### Consideraciones del **update** de un producto:
 
@@ -104,6 +108,38 @@ Modificar otros campos, implicaría crear un producto distinto sobre uno existen
 
 El producto se marca como borrado (soft delete) para cumplir con la consigna de uso de **setDoc()** con **{ merge: true }**.
 El producto se puede eliminar permanentemente desde la sección de productos borrados para cumplir con la consigna de uso de **deleteDoc()**.
+
+### Captura de pantallas de la aplicación:
+
+Las capturas se realizan de las pantallas para dispositivos móviles,
+para mostrar que se realizó la tarea aplicando la técnica de **mobile first**.
+
+<table>
+  <thead>
+    <tr align="center">
+      <th style="font-size: 12px;">Inicio</th>
+      <th style="font-size: 12px;">Panel de administración</th>
+      <th style="font-size: 12px;">Login</th>
+      <th style="font-size: 12px;">Register</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width="25%">
+      <img src="src/assets/images/init.png" alt="Inicio" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/admin.png" alt="Panel de administración" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/login.png" alt="Login" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/register.png" alt="Register" />
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 ### Recursos utilizados en la tarea:
 
@@ -117,6 +153,3 @@ El producto se puede eliminar permanentemente desde la sección de productos bor
 ### Alumno: Rubén Seco
 
 ### Comisión: 181752
-
-
-

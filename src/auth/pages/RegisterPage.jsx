@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -12,13 +12,35 @@ export const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
-
   const onSubmit = async (data) => {
-    await registerUser(data);
-    reset();
-    navigate('/dashboard');
+    const { user, error } = await registerUser(data);
+    if (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Error al registrar usuario: ' + error.message,
+        icon: 'error',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          reset();
+          navigate('/auth/register');
+        }
+      });
+    }
+    Swal.fire({
+      title: 'Usuario registrado',
+      text: `Bienvenido ${user.email}`,
+      icon: 'success',
+      showConfirmButton: true,
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        reset();
+        navigate('/dashboard');
+      }
+    });
   };
-
 
   return (
     <div>

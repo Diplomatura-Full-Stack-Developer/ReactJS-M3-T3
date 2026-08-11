@@ -1,20 +1,45 @@
-
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 export const LoginPage = () => {
-
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
-    await loginUser(data);
-    navigate('/dashboard');
+    const { user, error } = await loginUser(data);
+    if (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Credenciales no válidas',
+        icon: 'error',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          reset();
+          navigate('/auth/login');
+        }
+      });
+    }
+    Swal.fire({
+      title: 'Usuario logueado',
+      text: `Bienvenido ${user.email}`,
+      icon: 'success',
+      showConfirmButton: true,
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        reset();
+        navigate('/dashboard');
+      }
+    });
   };
 
   return (
@@ -62,7 +87,10 @@ export const LoginPage = () => {
           <Link
             to='/auth/register'
             className='text-accent-600 text-shadow-lg text-sm md:text-md font-bold text-center'>
-            ¿No tienes una cuenta? <span className=' bg-primary-600 text-white/80 rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>Regístrate</span>
+            ¿No tienes una cuenta?{' '}
+            <span className=' bg-primary-600 text-white/80 rounded-md p-2 m-2 hover:bg-primary-700 transition-colors duration-300 cursor-pointer flex items-center justify-center'>
+              Regístrate
+            </span>
           </Link>
         </form>
       </div>
