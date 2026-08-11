@@ -86,7 +86,6 @@ export const auth = getAuth();
 ### Consideraciones generales de la tarea:
 
 Se utiliza como base de partida la tarea 1 del modulo 3 (Firebase - Parte I).
-El objetivo es avanzar hacia lo que podría ser la tarea final integradora del curso.
 
 ### Consideraciones sobre la base de datos:
 
@@ -99,12 +98,12 @@ await seedProducts();
 para crear los productos de prueba en la base de datos de Firestore.
 Si la colección no existe, se crea automáticamente y se agregan los productos de prueba.
 
-### Consideraciones del **update** de un producto:
+### Consideraciones del _**update**_ de un producto:
 
 Se habilitan para modificar solamente los campos que son editables: precio, stock y oferta en cuotas.
 Modificar otros campos, implicaría crear un producto distinto sobre uno existente.
 
-### Consideraciones del **delete** de un producto:
+### Consideraciones del _**delete**_ de un producto:
 
 El producto se marca como borrado (soft delete) para cumplir con la consigna de uso de **setDoc()** con **{ merge: true }**.
 El producto se puede eliminar permanentemente desde la sección de productos borrados para cumplir con la consigna de uso de **deleteDoc()**.
@@ -136,6 +135,59 @@ para mostrar que se realizó la tarea aplicando la técnica de **mobile first**.
     </td>
     <td width="25%">
       <img src="src/assets/images/register.png" alt="Register" />
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr align="center">
+      <th style="font-size: 12px;">Login exitoso</th>
+      <th style="font-size: 12px;">Login fallido</th>
+      <th style="font-size: 12px;">Register exitoso</th>
+      <th style="font-size: 12px;">Register fallido</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width="25%">
+      <img src="src/assets/images/login_ok.png" alt="Login exitoso" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/login_error.png" alt="Login fallido" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/register_ok.png" alt="Register exitoso" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/register_error.png" alt="Register fallido" />
+    </td>
+  </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr align="center">
+      <th style="font-size: 12px;">Update</th>
+      <th style="font-size: 12px;">Soft delete</th>
+      <th style="font-size: 12px;">Hard delete</th>
+      <th style="font-size: 12px;">Add product</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td width="25%">
+      <img src="src/assets/images/update.png" alt="Update" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/soft_deleted.png" alt="Soft delete" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/hard_deleted.png" alt="Hard delete" />
+    </td>
+    <td width="25%">
+      <img src="src/assets/images/add_product.png" alt="Add product" />
     </td>
   </tr>
   </tbody>
