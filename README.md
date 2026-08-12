@@ -90,7 +90,7 @@ Se utiliza como base la aplicación de la tarea 2 del módulo 3.
 
 3. En los ejemplos se utiliza el hook **useAuth** para obtener el estado de autenticación y el usuario autenticado.
 
-4. Una mejora a implementar es crear una colección en Firebase **users**, para agregar el rol de usuario (admin, user) y algún dato adicional como por ejemplo el nombre. No se implementó en esta tarea porque no se requeria en la consigna.
+4. Una mejora a implementar es crear una colección en Firebase **users**, para agregar el rol de usuario (admin, user) y algún dato adicional como por ejemplo el nombre. No se implementó en esta tarea porque no se especificó en la consigna.
 
 5. Si se elimina el provider del contexto como se muestra en el código adjunto. 
 
