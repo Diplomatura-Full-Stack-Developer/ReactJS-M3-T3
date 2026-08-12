@@ -117,6 +117,10 @@ Se rompe la aplicación con un mensaje de error en la consola del navegador:
 **Nota**: No se entiende bien en la consigna que es lo que se debe remover, para que dé _undefined_. 
 
 
+### Consideraciones del diseño UI:
+
+Se mantiene la aplicación de la técnica de _mobile first_.
+
 ### Recursos utilizados en la tarea:
 
 - Firebase (https://firebase.google.com/)
