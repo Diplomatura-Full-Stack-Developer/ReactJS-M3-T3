@@ -6,7 +6,6 @@ import { AddProductPage } from '../../products/AddProductPage';
 import { UpdateProductPage } from '../../products/UpdateProductPage';
 import { useAuth } from '../../../auth/hooks/useAuth';
 
-
 export const DashboardRouter = () => {
   const { user } = useAuth();
   if (!user) {
