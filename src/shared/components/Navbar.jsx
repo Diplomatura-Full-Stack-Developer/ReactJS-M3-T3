@@ -7,8 +7,12 @@ import {
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
 import { FiMenu } from 'react-icons/fi';
-
-const navbarLinks = [
+import { useAuth } from '../../auth/hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+export const Navbar = () => {
+  const { user, logoutUser } = useAuth();
+  const navigate = useNavigate();
+  const navbarLinks = [
   {
     to: '/',
     label: 'Inicio',
@@ -21,13 +25,20 @@ const navbarLinks = [
     to: '/about',
     label: 'Nosotros',
   },
-  {
-    to: '/dashboard',
-    label: 'Admin',
-  },
-];
+  ...(user ? [
+    {
+      to: '/dashboard',
+      label: 'Admin',
+    },
+  ] : []),
+  ];
+  
 
-export const Navbar = () => {
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/auth');
+  };
+
   return (
     <div className='flex justify-between items-center'>
       <nav className='text-accent-700 p-4 text-base font-bold text-shadow-lg hidden md:block'>
@@ -41,11 +52,19 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
+      {user ? (
+        <Link
+          onClick={handleLogout}
+          className='bg-primary-500 w-16 md:w-24 text-white text-center font-bold text-shadow-lg text-xs rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer'>
+          Cerrar sesión
+        </Link>
+      ) : (
       <Link
         to='/auth'
         className='bg-primary-500 w-16 md:w-24 text-white text-center font-bold text-shadow-lg text-xs rounded-md p-2 m-2 hover:bg-primary-600 transition-colors duration-300 cursor-pointer'>
         Iniciar sesión
       </Link>
+      )}
       <div className='flex justify-end items-center md:hidden'>
         <DropdownMenu>
           <DropdownMenuTrigger

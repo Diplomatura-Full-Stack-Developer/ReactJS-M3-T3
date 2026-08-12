@@ -37,7 +37,7 @@ export const LoginPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         reset();
-        navigate('/dashboard');
+        navigate('/');
       }
     });
   };

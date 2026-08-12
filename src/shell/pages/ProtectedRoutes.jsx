@@ -1,24 +1,25 @@
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useEffect } from 'react';
+import { useAuth } from '../../auth/hooks/useAuth';
 
 export const ProtectedRoutes = ({ children }) => {
-
-  // In a real application, this would be a state that is set by the user's authentication status.
-  const isAuthenticated = false;
-
+  const { user } = useAuth();
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (user) {
+      return;
+    }
+    if (!user) {
       Swal.fire({
         title: 'Error',
-        text: 'Por favor, inicia sesión para poder realizar la compra.',
+        text: 'Por favor, inicia sesión para acceder a la página del carrito.',
         icon: 'warning',
         confirmButtonText: 'OK',
       });
       navigate('/');
     }
-  }, [isAuthenticated, navigate]);
+  }, [user, navigate]);
   return children;
 };
-

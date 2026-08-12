@@ -37,7 +37,7 @@ export const RegisterPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         reset();
-        navigate('/dashboard');
+        navigate('/');
       }
     });
   };
