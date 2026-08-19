@@ -13,7 +13,6 @@
 Utilizar **Context API** para compartir y consumir infomación global en una aplicación React,
 evitando el _prop drilling_ y aplicando buenas prácticas.
 
-
 ### Como ejecutar la tarea:
 
 1. Clonar el repositorio:
@@ -66,56 +65,50 @@ npm run dev
 ```js
 await seedProducts();
 ```
+
 para crear los productos de prueba en la base de datos de Firestore.
 Si la colección no existe, se crea automáticamente y se agregan los productos de prueba.
-
 
 **Nota**: No es necesario hacer el _deploy_ para poder acceder a la base de datos de Firebase.
 
 ### Consideraciones de la aplicación:
 
-Se utiliza como base la aplicación de la tarea 2 del módulo 3. 
-
+Se utiliza como base la aplicación de la tarea 2 del módulo 3.
 
 ### Consideraciones sobre el uso de Context API:
 
 1. Se crea un authContext para compartir la información de autenticación globalmente en la aplicación.
 
 2. Se consume en los siguientes componentes:
-   
-    - En el Navbar para mostrar el botón de cierre de sesión o inicio de sesión, de acuerdo al estado de autenticación.
-    - En el Navbar para agregar al menú de navegación el link al dashboard de administración solo si el usuario está autenticado.
-    - En el DashboardRouter para proteger las rutas si el usuario no está autenticado.
-    - En el ProtectedRoutes para enviar mensaje a la pantalla solicitando el inicio de sesión si el usuario no está autenticado.
+   - En el Navbar para mostrar el botón de cierre de sesión o inicio de sesión, de acuerdo al estado de autenticación.
+   - En el Navbar para agregar al menú de navegación el link al dashboard de administración solo si el usuario está autenticado.
+   - En el DashboardRouter para proteger las rutas si el usuario no está autenticado.
+   - En el ProtectedRoutes para enviar mensaje a la pantalla solicitando el inicio de sesión si el usuario no está autenticado.
 
 3. En los ejemplos se utiliza el hook **useAuth** para obtener el estado de autenticación y el usuario autenticado.
 
 4. Una mejora a implementar es crear una colección en Firebase **users**, para agregar el rol de usuario (admin, user) y algún dato adicional como por ejemplo el nombre. No se implementó en esta tarea porque no se especificó en la consigna.
 
-5. Si se elimina el provider del contexto como se muestra en el código adjunto. 
-
+5. Si se elimina el provider del contexto como se muestra en el código adjunto.
 
 ```jsx
 import './styles.css';
 import { AppRouter } from '../src/router/AppRouter';
 // import { AuthProvider } from './auth/provider/AuthProvider';
 
-
 export const App = () => {
   return (
     // <AuthProvider>
-      <AppRouter />
+    <AppRouter />
     // </AuthProvider>
   );
 };
-
 ```
-Se rompe la aplicación con un mensaje de error en la consola del navegador:
+
+Se rompe la aplicación con un mensaje de error en la consola del navegador,
+donde se puede observar que el valor devuelto por el custom hook **useAuth** es **null**.
 
 ![Error de contexto](src/assets/images/provider_error.png)
-
-**Nota**: No se entiende bien en la consigna que es lo que se debe remover, para que dé _undefined_. 
-
 
 ### Consideraciones del diseño UI:
 
